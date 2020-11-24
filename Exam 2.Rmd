@@ -29,4 +29,10 @@ stargazer(model_1, type = "text")
 ```
 
 ```{R}
-model_logit1 <- glm(INCWAGE ~ AGE + AGE^2 + UHRSWORK
+model_logit1 <- glm(INCWAGE ~ AGE + AGE^2 + UHRSWORK)
+```
+
+All of the work on this exam is my own, answered honestly as rules state.
+Name: Alejandro Sanchez   
+
+Date: 11/23/2020
