@@ -1,0 +1,32 @@
+---
+title: "Exam 2"
+author: "Alejandro Sanchez"
+date: "11/23/2020"
+output: html_document
+---
+1a).5398
+1b)0
+1c).177
+1d)
+1e).06134
+2) t-stat: 1.303 P-value:.1934
+3)
+
+
+```{r}
+load("C:/Users/alejo/Desktop/Econometrics/ecob2000_lecture1/acs2017_ny_data.RData")
+attach(acs2017_ny)
+use_varb <- (AGE >= 20) & (AGE <= 65) & (LABFORCE == 2) & (WKSWORK2 > 1) & (UHRSWORK >= 35) & (Hispanic == 1) & (female == 0) & ((educ_hs == 1) | (educ_advdeg == 1))
+dat_use <- subset(acs2017_ny,use_varb) # 
+detach()
+attach(dat_use)
+```
+
+```{R}
+model_1 <- lm((INCWAGE ~ AGE + UHRSWORK))
+require(stargazer)
+stargazer(model_1, type = "text")
+```
+
+```{R}
+model_logit1 <- glm(INCWAGE ~ AGE + AGE^2 + UHRSWORK
